@@ -1,5 +1,6 @@
 # Homelab environment data
 # This file is intentionally structured for easy updates via scripts / IaC tooling later.
+# The "last_updated" field is a simple timestamp to track when the data was last modified.
 last_updated: "2026-06-11"
 
 sections:
