@@ -57,10 +57,10 @@ jobs:
             fi
 
             NAME=$(echo "$REPO_JSON" | jq -r '.name')
-            DESC=$(echo "$REPO_JSON" | jq -r '(.description | select(. != "")) // "No description yet"')
+            DESC=$(echo "$REPO_JSON" | jq -r 'if (.description | type == "string" and length > 0) then .description else "No description yet" end')
             STARS=$(echo "$REPO_JSON" | jq -r '.stargazerCount')
             LANG=$(echo "$REPO_JSON" | jq -r '.primaryLanguage.name // "N/A"')
-            TOPICS=$(echo "$REPO_JSON" | jq -r '.repositoryTopics // [] | join(", ")')
+            TOPICS=$(echo "$REPO_JSON" | jq -r '.repositoryTopics // [] | map(.name) | join(", ")')
             URL=$(echo "$REPO_JSON" | jq -r '.url')
 
             # Prefer last push date, fall back to creation date (handles nulls from brand new repos)
