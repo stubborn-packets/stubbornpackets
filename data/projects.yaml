@@ -1,19 +1,20 @@
-# This file is managed by .github/workflows/sync-projects.yml
-# It contains metadata pulled from your technical project repositories.
-#
-# Once you create new project repos (e.g. stubborn-packets/cisco-ise),
-# add them to the PROJECTS list in sync-projects.yml.
-#
-# The homepage can later consume this data to show current projects,
-# last updated dates, stars, etc.
+# This file is automatically managed by .github/workflows/sync-projects.yml
+# Do not edit manually — changes will be overwritten on the next sync.
 
-projects: []
-# Example structure (the workflow will populate this automatically):
-# - name: "Cisco ISE Automation"
-#   repo: "stubborn-packets/cisco-ise"
-#   description: "Ansible roles and Python scripts for managing Cisco ISE policies"
-#   url: "https://github.com/stubborn-packets/cisco-ise"
-#   stars: 12
-#   language: "Python"
-#   topics: "cisco, ise, ansible, automation"
-#   last_updated: "2026-06-11T10:30:00Z"
+projects:
+  - name: "cisco-ise"
+    repo: "stubborn-packets/cisco-ise"
+    description: "Cisco ISE automation, 802.1X / NAC policy management, and identity-driven network access tooling. Policy-as-code experiments and Python automation from my network engineering and IaC learning labs."
+    url: "https://github.com/stubborn-packets/cisco-ise"
+    stars: 0
+    language: "Python"
+    topics: "automation, cisco, cisco-ise, dot1x, nac, network-automation, python"
+    last_updated: "2026-06-11T19:51:14Z"
+  - name: "proxmox-terraform"
+    repo: "stubborn-packets/proxmox-terraform"
+    description: "Proxmox VE infrastructure as code with Terraform. Building, automating, and versioning my homelab hypervisor and VM fleet as code."
+    url: "https://github.com/stubborn-packets/proxmox-terraform"
+    stars: 0
+    language: "Python"
+    topics: "automation, gitops, homelab, iac, proxmox, terraform"
+    last_updated: "2026-06-11T19:54:11Z"
