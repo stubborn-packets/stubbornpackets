@@ -7,22 +7,22 @@ sections:
   - category: "Compute & Virtualization"
     icon: "🖥️"
     items:
-      - "Proxmox VE cluster (3-node)"
-      - "Kubernetes (k3s + Talos experiments)"
+      - "Proxmox VE single node running on Intel NUC NUC13ANHi7 with 64GB RAM"
       - "LXC containers and lightweight VMs for services"
+      - "AWS for cloud workloads and hybrid experiments"
 
   - category: "Networking & Security"
     icon: "🌐"
     items:
-      - "Palo Alto PA-440 firewall"
-      - "Cisco ISE (ERS, LDAP, policy enforcement)"
+      - "Cisco CML VM for network simulation and testing"
+      - "Cisco ISE VM (ERS, LDAP, policy enforcement)"
       - "Python-driven automation for identity & access"
       - "Overlay networking (Tailscale / WireGuard)"
 
   - category: "Infrastructure as Code & GitOps"
     icon: "🏗️"
     items:
-      - "Terraform / OpenTofu for declarative infrastructure"
+      - "Terraform for declarative infrastructure"
       - "Ansible for configuration management"
       - "GitHub Actions for CI"
       - "This site itself (Hugo + Cloudflare Pages)"
