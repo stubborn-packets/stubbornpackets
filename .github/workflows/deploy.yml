@@ -7,15 +7,15 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-# Prevent multiple concurrent deployments for the same ref
+# Prevent concurrent deployments on the same ref
 concurrency:
   group: "pages-deploy-${{ github.ref }}"
   cancel-in-progress: true
 
 permissions:
   contents: read
-  deployments: write   # Allows updating GitHub deployment status
-  pull-requests: write # Allows commenting preview URLs on PRs
+  deployments: write
+  pull-requests: write
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true   # In case we add submodules later (e.g. theme)
+          submodules: true
 
       - name: Setup Hugo (Extended)
         uses: peaceiris/actions-hugo@v3
@@ -45,6 +45,18 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Verify build output
+        run: |
+          if [ ! -f public/index.html ]; then
+            echo "ERROR: public/index.html not found"
+            exit 1
+          fi
+          if ! grep -q "stubbornpackets" public/index.html; then
+            echo "WARNING: 'stubbornpackets' not found in index.html - custom layout may not have rendered"
+          fi
+          echo "Build verification passed. Site size:"
+          du -sh public/
+
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
@@ -52,14 +64,14 @@ jobs:
           path: public
           retention-days: 1
 
-  # Production deployment (only on main branch pushes / manual)
+  # Production deployment (only on main)
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://stubbornpackets.pages.dev   # Update to custom domain once live
+      url: https://stubbornpackets.com
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -79,10 +91,10 @@ jobs:
 
       - name: Output deployment details
         run: |
-          echo "Production URL: ${{ steps.deploy.outputs.deployment-url }}"
-          echo "Production Alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
+          echo "Production deployed to: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Production alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
 
-  # Preview deployment for every pull request
+  # Preview deployment for every PR
   deploy-preview:
     needs: build
     if: github.event_name == 'pull_request'
