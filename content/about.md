@@ -1,18 +1,11 @@
 ---
 title: "About"
+layout: "about"
 ---
 
-**Joshua Buck** — Network Engineer based in North Carolina.
-![Hero](/images/self-ai-headshot.jpg "Professional Headshot of Joshua Buck with AI")
+<!-- Content is rendered via the dedicated custom layout at layouts/about.html
+     and partials in layouts/partials/about/.
 
-I specialize in identity & access (Cisco ISE), automation (Python), and modern infrastructure practices. I am on a journey to learn new automation technologies and see how they can work together with Networking to make something really cool.
-
-This site is my public lab notebook where I document practical configurations, scripts, network diagrams, lessons learned, and experiments integrating Machine Learning into network operations.
-
-**Core Interests:**
-- Network Security & Automation
-- Infrastructure as Code & GitOps
-- MLOps and local LLMs in the homelab
-- Sustainable learning while balancing family life
-
-When not in behind the keyboard, you'll find me by the lake, drinking coffee, or reading a good science fiction book.
+     This keeps the page aligned with the custom homepage structure and
+     allows easy data-driven updates from data/homelab.yaml (and future IaC tooling).
+-->

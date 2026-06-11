@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- /*
+  Dedicated custom layout for the /about/ page.
+  Mirrors the custom homepage structure for consistency.
+  Content is mostly in partials for easy maintenance and future IaC updates.
+*/ -}}
+
+<div class="about-page">
+
+  {{ partial "about/intro.html" . }}
+
+  {{ partial "about/personal.html" . }}
+
+  {{ partial "home/focus-areas.html" . }}
+
+  {{ partial "home/site-as-code.html" . }}
+
+</div>
+
+{{ end }}

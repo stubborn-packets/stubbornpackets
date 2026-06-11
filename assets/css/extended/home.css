@@ -317,3 +317,34 @@
   vertical-align: middle;
   display: inline-block;
 }
+
+/* Small social badges (used on about page for X / LinkedIn) */
+.social-badge {
+  display: inline-block;
+  background: var(--tertiary);
+  color: var(--primary);
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  margin: 0 3px;
+  transition: all 0.15s ease;
+  vertical-align: baseline;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.social-badge .icon {
+  font-size: 1.15em;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+.social-badge:hover {
+  background: var(--border);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
