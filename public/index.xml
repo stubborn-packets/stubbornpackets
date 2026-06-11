@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Home on stubbornpackets</title>
+    <title>StubbornPackets on stubbornpackets</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Home on stubbornpackets</description>
+    <description>Recent content in StubbornPackets on stubbornpackets</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
@@ -12,7 +12,10 @@
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;Network Engineer focused on security, identity systems, automation, and bringing ML into operational workflows.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;Joshua Buck&lt;/strong&gt; — Network Engineer based in North Carolina.
+&lt;img alt=&#34;Hero&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/self-ai-headshot.jpg&#34; title=&#34;Professional Headshot of Joshua Buck with AI&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I specialize in identity &amp;amp; access (Cisco ISE), automation (Python), and modern infrastructure practices. I am on a journey to learn new automation technologies and see how they can work together with Networking to make something really cool.&lt;/p&gt;
+&lt;p&gt;This site is my public lab notebook where I document practical configurations, scripts, network diagrams, lessons learned, and experiments integrating Machine Learning into network operations.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

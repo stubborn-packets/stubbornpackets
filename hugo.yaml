@@ -4,28 +4,44 @@ title: stubbornpackets
 theme: PaperMod
 
 params:
-  description: "Homelab documentation — Network Engineering, IaC, and ML from the rack to the lake."
+  description: "Homelab documentation — Network Engineering • IaC • ML"
   author: Joshua Buck
   
-  # Dark theme by default
   defaultTheme: dark
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
   ShowToc: true
-
+  ShowBreadCrumbs: true
+  
+# Better homepage
   homeInfoParams:
     Title: "stubbornpackets"
-    Content: "From the rack to the lake — documenting real homelab engineering in Network Engineering, Infrastructure as Code, and Machine Learning."
+    Content: "From the rack to the lake — documenting real homelab engineering"
 
+    # Enable more features
+    ShowCodeCopyButtons: true
+    ShowToc: true
+    ShowReadingTime: true
+  
+  # Social / links
   socialIcons:
     - name: github
-      url: "https://github.com/stubborn-packets"
+      url: "https://github.com/stubbornpackets"   # update later
+    - name: linkedin
+      url: "https://linkedin.com/in/yourprofile" # update later
+
+  # Labels for sections
+  label:
+    text: "Homelab Lab Notebook"
+    icon: "🔬"
+    iconHeight: 28
 
 markup:
   highlight:
-    style: github-dark  # Nice dark syntax highlighting
+    style: github-dark
+    noClasses: false
 
 menu:
   main:
