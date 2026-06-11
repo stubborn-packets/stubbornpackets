@@ -1,0 +1,12 @@
+{{/* Hero section with image + title/tagline */}}
+<section class="home-hero">
+  <img
+    src="/images/hero.jpg"
+    alt="stubbornpackets Homelab by the Lake — laptop, notebook, and coffee on a dock under the stars"
+    loading="eager"
+  />
+  <div class="home-hero-content">
+    <h1>stubbornpackets</h1>
+    <p class="tagline">{{ site.Params.home.tagline | default "From the lab to the lake — documenting real homelab engineering" }}</p>
+  </div>
+</section>

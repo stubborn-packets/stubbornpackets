@@ -1,0 +1,63 @@
+{{/* Featured + recent lab experiments.
+     Pulls from data/featured.yaml + automatically shows latest real blog posts.
+*/}}
+
+{{- $featured := index site.Data "featured" | default slice -}}
+
+<section class="home-section">
+  <h2>Featured Lab Experiments</h2>
+
+  <div class="featured-list">
+    {{- /* Curated featured items from data */}}
+    {{- range $featured }}
+    <div class="featured-item">
+      <h3>{{ .title }}</h3>
+      <p class="summary">{{ .summary }}</p>
+
+      <div class="meta">
+        {{- if .status }}
+        <span class="status">{{ .status }}</span>
+        {{- end }}
+
+        {{- with .tags }}
+        <div class="tags">
+          {{- range . }}
+          <span>{{ . }}</span>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+
+      {{- if .url }}
+      <a class="entry-link" href="{{ .url }}" aria-label="{{ .title }}"></a>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- /* Automatically surface the 2 most recent real blog posts (if any exist) */}}
+    {{- $recentPosts := where site.RegularPages "Type" "in" site.Params.mainSections | first 2 }}
+    {{- range $recentPosts }}
+    <div class="featured-item">
+      <h3>{{ .Title }}</h3>
+      <p class="summary">{{ .Summary | plainify | truncate 160 }}</p>
+
+      <div class="meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        {{- with .Params.tags }}
+        <div class="tags">
+          {{- range first 3 . }}
+          <span>{{ . }}</span>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+
+      <a class="entry-link" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+    </div>
+    {{- end }}
+  </div>
+
+  <div class="cta-row" style="margin-top: 1rem;">
+    <a href="/blog/">Browse all lab notes →</a>
+  </div>
+</section>

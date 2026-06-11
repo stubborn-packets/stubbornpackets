@@ -13,10 +13,12 @@ params:
   style:
     main: "normal"                # Larger text overall
   
-  # Homepage
-  homeInfoParams:
-    Title: "stubbornpackets"
-    Content: "From the lab to the lake — documenting real homelab engineering"
+  # Homepage (custom layouts/index.html + data-driven sections)
+  mainSections: ["blog"]
+
+  # Custom homepage strings
+  home:
+    tagline: "From the lab to the lake — documenting real homelab engineering"
 
   # Features
   ShowReadingTime: true
@@ -25,7 +27,7 @@ params:
   ShowCodeCopyButtons: true
   ShowToc: true
   ShowBreadCrumbs: true
-  ShowRecentPosts: true
+  ShowRecentPosts: false   # We handle recent/featured manually on the custom home
   
   # Social Icons (update URLs later)
   socialIcons:
@@ -34,11 +36,13 @@ params:
     - name: linkedin
       url: "https://linkedin.com/in/joshuabuck"
 
-  # Labels
+  # Labels (logo in top-left nav)
+  # Using the site brand name directly for consistency and to avoid broken icon rendering.
+  # (The previous "🔬" emoji was being treated as an <img src> by the theme, causing ? in Safari.)
   label:
-    text: "Homelab Lab Notebook"
-    icon: "🔬"
-    iconHeight: 28
+    text: "stubbornpackets"
+    # No icon for maximum reliability across browsers. 
+    # A small custom SVG could be added later via iconSVG if desired.
 
 markup:
   highlight:

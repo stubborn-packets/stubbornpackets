@@ -1,0 +1,27 @@
+# Curated / featured lab experiments for the homepage.
+# These can be updated by automation or manually.
+# When real posts exist, you can also auto-include recent blog posts in the template.
+
+- title: "Policy as Code: Cisco ISE + Terraform"
+  summary: "Modeling network access policies declaratively and enforcing them through GitOps pipelines instead of click-ops."
+  url: "/blog/"
+  status: "In Progress"
+  tags: ["cisco", "ise", "terraform", "iac"]
+
+- title: "Local LLMs for Network Operations"
+  summary: "Running private models with Ollama to parse logs, suggest configurations, and detect anomalies in a homelab environment."
+  url: "/blog/"
+  status: "In Progress"
+  tags: ["ollama", "ml", "automation"]
+
+- title: "Proxmox + Ansible: Reproducible Homelab"
+  summary: "Treating the entire hypervisor and VM fleet as code. One-command rebuilds of lab environments from git."
+  url: "/blog/"
+  status: "Planned"
+  tags: ["proxmox", "ansible", "iac"]
+
+- title: "Palo Alto Automation with Python & Terraform"
+  summary: "Combining the PAN-OS API with Terraform providers and Python SDKs for day-2 operations and security policy drift detection."
+  url: "/blog/"
+  status: "Planned"
+  tags: ["paloalto", "terraform", "python"]

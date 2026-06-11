@@ -1,0 +1,304 @@
+/* =========================================
+   Custom Homepage Styles for stubbornpackets
+   Extends PaperMod's design system (uses CSS vars)
+   ========================================= */
+
+/* Hero */
+.home-hero {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.home-hero img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.home-hero-content {
+  margin-top: 1.25rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-hero-content h1 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+}
+
+.home-hero-content .tagline {
+  font-size: 1.15rem;
+  color: var(--secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Section headings */
+.home-section {
+  margin: 2.75rem 0 1.5rem;
+}
+
+.home-section h2 {
+  font-size: 1.45rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+}
+
+/* Lab at a Glance - grid of categories */
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lab-card {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.lab-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--tertiary);
+}
+
+.lab-card .lab-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+}
+
+.lab-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--content);
+  line-height: 1.55;
+}
+
+.lab-card li {
+  margin-bottom: 0.2rem;
+}
+
+.lab-meta {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+/* Focus Areas - 3 prominent cards */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.focus-card {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.focus-card:hover,
+.focus-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--tertiary);
+  outline: none;
+}
+
+.focus-card .focus-icon {
+  font-size: 1.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.focus-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.focus-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.focus-card .focus-link {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Featured experiments - reuse + extend post-entry look */
+.featured-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.featured-item {
+  position: relative;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featured-item:hover {
+  transform: translateY(-1px);
+  border-color: var(--tertiary);
+}
+
+.featured-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.featured-item .summary {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.featured-item .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.featured-item .meta .status {
+  background: var(--tertiary);
+  color: var(--theme);
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.featured-item .tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.featured-item .tags span {
+  background: var(--code-bg);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  border: 1px solid var(--border);
+}
+
+.featured-item a.entry-link {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  text-indent: -9999px; /* hide text but keep clickable area */
+}
+
+/* Site as Code callout */
+.site-as-code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.site-as-code p {
+  margin: 0.3rem 0 0;
+  font-size: 0.97rem;
+}
+
+.site-as-code strong {
+  color: var(--primary);
+}
+
+/* Philosophy + final CTAs */
+.home-philosophy {
+  font-size: 1rem;
+  color: var(--secondary);
+  max-width: 68ch;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cta-row a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  background: var(--tertiary);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
+}
+
+.cta-row a:hover {
+  background: var(--border);
+}
+
+.cta-row a.primary {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+.cta-row a.primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .home-hero img {
+    max-height: 260px;
+  }
+  .home-hero-content h1 {
+    font-size: 1.85rem;
+  }
+  .lab-grid,
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+}

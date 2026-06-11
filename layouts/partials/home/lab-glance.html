@@ -1,0 +1,28 @@
+{{/* Homelab at a Glance - driven by data/homelab.yaml */}}
+{{- $lab := index site.Data "homelab" -}}
+
+<section class="home-section">
+  <h2>Homelab at a Glance</h2>
+
+  <div class="lab-grid">
+    {{- range $lab.sections }}
+    <div class="lab-card">
+      <div class="lab-header">
+        <span>{{ .icon }}</span>
+        <span>{{ .category }}</span>
+      </div>
+      <ul>
+        {{- range .items }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+
+  {{- if $lab.last_updated }}
+  <div class="lab-meta">
+    Environment last noted: <strong>{{ $lab.last_updated }}</strong>
+  </div>
+  {{- end }}
+</section>

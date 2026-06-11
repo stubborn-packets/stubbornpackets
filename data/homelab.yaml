@@ -1,0 +1,35 @@
+# Homelab environment data
+# This file is intentionally structured for easy updates via scripts / IaC tooling later.
+last_updated: "2026-06-11"
+
+sections:
+  - category: "Compute & Virtualization"
+    icon: "🖥️"
+    items:
+      - "Proxmox VE cluster (3-node)"
+      - "Kubernetes (k3s + Talos experiments)"
+      - "LXC containers and lightweight VMs for services"
+
+  - category: "Networking & Security"
+    icon: "🌐"
+    items:
+      - "Palo Alto PA-440 firewall"
+      - "Cisco ISE (ERS, LDAP, policy enforcement)"
+      - "Python-driven automation for identity & access"
+      - "Overlay networking (Tailscale / WireGuard)"
+
+  - category: "Infrastructure as Code & GitOps"
+    icon: "🏗️"
+    items:
+      - "Terraform / OpenTofu for declarative infrastructure"
+      - "Ansible for configuration management"
+      - "GitHub Actions for CI"
+      - "This site itself (Hugo + Cloudflare Pages)"
+
+  - category: "ML / Local Intelligence"
+    icon: "🤖"
+    items:
+      - "Ollama running local LLMs"
+      - "MLOps patterns in the homelab"
+      - "Log analysis + anomaly detection experiments"
+      - "Intelligent network automation prototypes"
