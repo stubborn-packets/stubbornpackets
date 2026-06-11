@@ -1,5 +1,5 @@
 ---
-title: "StubbornPackets"
+title: "stubbornpackets"
 ---
 
 ![Hero](/images/hero.jpg "stubbornpackets Homelab by the Lake")
@@ -12,14 +12,20 @@ Practical documentation on **Network Engineering**, **Infrastructure as Code**, 
 
 ### Core Focus Areas
 
-**Network Engineering**  
+**🔧 Network Engineering**  
 Cisco ISE (ERS/LDAP), Python automation, identity-driven security, Palo Alto, endpoint management.
 
-**Infrastructure as Code**  
+**🏗️ Infrastructure as Code**  
 Terraform, Ansible, Kubernetes on Proxmox, GitOps, policy-as-code.
 
-**ML Integration**  
+**🤖 ML Integration**  
 Local LLMs (Ollama), MLOps patterns, anomaly detection, intelligent network automation.
+
+---
+
+### Recent Lab Experiments
+
+*(New posts will appear here automatically once you create them in `content/blog/`)*
 
 ---
 

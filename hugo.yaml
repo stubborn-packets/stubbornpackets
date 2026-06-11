@@ -7,32 +7,34 @@ params:
   description: "Homelab documentation — Network Engineering • IaC • ML"
   author: Joshua Buck
   
+  # Theme & Layout
   defaultTheme: dark
+  contentWidth: "wide"           # Makes the site wider
+  style:
+    main: "normal"                # Larger text overall
+  
+  # Homepage
+  homeInfoParams:
+    Title: "stubbornpackets"
+    Content: "From the lab to the lake — documenting real homelab engineering"
+
+  # Features
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
   ShowToc: true
   ShowBreadCrumbs: true
+  ShowRecentPosts: true
   
-# Better homepage
-  homeInfoParams:
-    Title: "stubbornpackets"
-    Content: "From the rack to the lake — documenting real homelab engineering"
-
-    # Enable more features
-    ShowCodeCopyButtons: true
-    ShowToc: true
-    ShowReadingTime: true
-  
-  # Social / links
+  # Social Icons (update URLs later)
   socialIcons:
     - name: github
-      url: "https://github.com/stubbornpackets"   # update later
+      url: "https://github.com/stubbornpackets"
     - name: linkedin
-      url: "https://linkedin.com/in/yourprofile" # update later
+      url: "https://linkedin.com/in/joshuabuck"
 
-  # Labels for sections
+  # Labels
   label:
     text: "Homelab Lab Notebook"
     icon: "🔬"
