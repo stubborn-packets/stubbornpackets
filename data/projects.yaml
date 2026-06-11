@@ -1,0 +1,19 @@
+# This file is managed by .github/workflows/sync-projects.yml
+# It contains metadata pulled from your technical project repositories.
+#
+# Once you create new project repos (e.g. stubborn-packets/cisco-ise),
+# add them to the PROJECTS list in sync-projects.yml.
+#
+# The homepage can later consume this data to show current projects,
+# last updated dates, stars, etc.
+
+projects: []
+# Example structure (the workflow will populate this automatically):
+# - name: "Cisco ISE Automation"
+#   repo: "stubborn-packets/cisco-ise"
+#   description: "Ansible roles and Python scripts for managing Cisco ISE policies"
+#   url: "https://github.com/stubborn-packets/cisco-ise"
+#   stars: 12
+#   language: "Python"
+#   topics: "cisco, ise, ansible, automation"
+#   last_updated: "2026-06-11T10:30:00Z"
