@@ -33,20 +33,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build
-        run: |
-          hugo --minify --debug 2>&1 | tee hugo-debug.log
-          echo "=== TEMPLATE SELECTION FOR HOME ==="
-          grep -E "(home|index\.html|layout|template)" hugo-debug.log | head -30 || true
-      - name: Show debug info
-        run: |
-          echo "=== Hugo version ==="
-          hugo version
-          echo "=== Layouts present ==="
-          find layouts -type f | head -20
-          echo "=== Data files ==="
-          ls -l data/
-          echo "=== Debug log snippet for home template ==="
-          grep -A20 -B5 -E "(home|index\.html)" hugo-debug.log | head -50 || true
+        run: hugo --minify
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
