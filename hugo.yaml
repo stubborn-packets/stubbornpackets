@@ -1,0 +1,37 @@
+baseURL: 'https://stubbornpackets.com/'
+languageCode: 'en-us'
+title: stubbornpackets
+theme: PaperMod
+
+params:
+  description: "Homelab documentation — Network Engineering, IaC, and ML from the rack to the lake."
+  author: Joshua Buck
+  
+  # Dark theme by default
+  defaultTheme: dark
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+
+  homeInfoParams:
+    Title: "stubbornpackets"
+    Content: "From the rack to the lake — documenting real homelab engineering in Network Engineering, Infrastructure as Code, and Machine Learning."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/stubborn-packets"
+
+markup:
+  highlight:
+    style: github-dark  # Nice dark syntax highlighting
+
+menu:
+  main:
+    - name: Blog
+      url: /blog/
+      weight: 10
+    - name: About
+      url: /about/
+      weight: 20
