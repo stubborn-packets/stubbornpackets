@@ -4,7 +4,7 @@ on:
   schedule:
     # Run daily at 06:00 UTC so the homepage always shows fresh project data
     - cron: '0 6 * * *'
-  workflow_dispatch:
+  workflow_dispatch: {}
   repository_dispatch:
     types: [sync-projects]
 
