@@ -41,7 +41,7 @@ params:
   # Using iconSVG (not "icon") so the theme outputs raw SVG (no <img> tag).
   # Uses currentColor so it adapts to light/dark themes automatically.
   label:
-    text: "stubbornpackets"
+    text: 'stubborn<span class="packets">packets</span>'
     # The SVG represents the neural/circuit emblem with central "SP" monogram and connection nodes.
     # Simplified and optimized for crisp rendering at small navbar sizes (28px target).
     iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="28" y="28" width="44" height="44" rx="5"/><text x="50" y="58" font-size="20" font-family="system-ui, sans-serif" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none">SP</text><line x1="28" y1="50" x2="8" y2="50"/><rect x="1" y="40" width="10" height="20" rx="2"/><line x1="72" y1="50" x2="92" y2="50"/><rect x="89" y="40" width="10" height="20" rx="2"/><line x1="50" y1="28" x2="50" y2="10"/><rect x="45" y="2" width="10" height="8" rx="1"/><line x1="50" y1="20" x2="30" y2="5"/><circle cx="27" cy="3" r="4"/><line x1="50" y1="20" x2="70" y2="5"/><circle cx="73" cy="3" r="4"/><line x1="50" y1="72" x2="50" y2="90"/><circle cx="50" cy="95" r="4"/><circle cx="15" cy="25" r="2.5" fill="currentColor" stroke="none"/><circle cx="85" cy="25" r="2.5" fill="currentColor" stroke="none"/><circle cx="15" cy="75" r="2.5" fill="currentColor" stroke="none"/><circle cx="85" cy="75" r="2.5" fill="currentColor" stroke="none"/></svg>'

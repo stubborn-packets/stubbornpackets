@@ -32,6 +32,17 @@
   font-weight: 700;
 }
 
+.home-hero-content h1 .packets {
+  font-weight: 400;
+}
+
+/* Navbar logo: make "packets" visually distinct with different weight, no space in source */
+.logo a .packets {
+  font-weight: 300;
+  margin-left: -0.35em; /* controls the gap between "stubborn" and "packets" (no space char in HTML) */
+  letter-spacing: 0; /* reset intra-word spacing so "packets" itself remains readable */
+}
+
 .home-hero-content .tagline {
   font-size: 1.15rem;
   color: var(--secondary);
