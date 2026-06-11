@@ -37,12 +37,16 @@ params:
       url: "https://linkedin.com/in/joshuabuck"
 
   # Labels (logo in top-left nav)
-  # Using the site brand name directly for consistency and to avoid broken icon rendering.
-  # (The previous "🔬" emoji was being treated as an <img src> by the theme, causing ? in Safari.)
+  # Brand name + custom inline SVG for reliable cross-browser rendering.
+  # Using iconSVG (not "icon") so the theme outputs raw SVG (no <img> tag).
+  # SVG uses currentColor → automatically matches text color in light + dark mode.
   label:
     text: "stubbornpackets"
-    # No icon for maximum reliability across browsers. 
-    # A small custom SVG could be added later via iconSVG if desired.
+    # Design notes for the iconSVG below:
+    # - Rounded rect + short lines = "packet" (network packets + IaC "code as config")
+    # - Stylized wave below = "lab to the lake" branding + NC homelab personality
+    # - Extremely simple geometry so it stays crisp and legible at the rendered size
+    iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="9" height="7" rx="1.3"/><path d="M6 5.5h5M6 7h3.2"/><path d="M2.5 13.2c1.6-.85 3.2 .9 4.8 .05 1.6-.85 3.2 .9 4.8 .05 1.6-.85 3.2 .9 4.8 .05"/></svg>'
 
 markup:
   highlight:

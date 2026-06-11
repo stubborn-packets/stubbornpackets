@@ -302,3 +302,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   Logo SVG icon (used via params.label.iconSVG)
+   Ensures consistent sizing + alignment in the
+   header across all pages and themes.
+   ========================================= */
+.logo a svg {
+  /* Bumped to 28px for better visual weight next to "stubbornpackets" text.
+     Still using inline SVG via iconSVG for perfect cross-browser rendering (no broken images). */
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
