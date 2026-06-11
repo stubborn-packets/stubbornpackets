@@ -28,7 +28,7 @@ jobs:
           PROJECTS=(
             "stubborn-packets/cisco-ise"
             "stubborn-packets/proxmox-terraform"
-            # Add future projects below, e.g.
+            # Add future projects below as you create them, e.g.
             # "stubborn-packets/network-ml-labs"
             # "stubborn-packets/ansible-networking"
           )
