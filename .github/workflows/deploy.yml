@@ -7,6 +7,16 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Prevent multiple concurrent deployments for the same ref
+concurrency:
+  group: "pages-deploy-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: write   # Allows updating GitHub deployment status
+  pull-requests: write # Allows commenting preview URLs on PRs
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true   # In case we add submodules later (e.g. theme)
 
       - name: Setup Hugo (Extended)
         uses: peaceiris/actions-hugo@v3
@@ -42,11 +52,14 @@ jobs:
           path: public
           retention-days: 1
 
-  # Deploy to production only on main
+  # Production deployment (only on main branch pushes / manual)
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://stubbornpackets.pages.dev   # Update to custom domain once live
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -57,17 +70,26 @@ jobs:
           path: public
 
       - name: Deploy to Cloudflare Pages (Production)
+        id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy public --project-name=stubbornpackets --branch=main
 
-  # Deploy preview for every PR
+      - name: Output deployment details
+        run: |
+          echo "Production URL: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Production Alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
+
+  # Preview deployment for every pull request
   deploy-preview:
     needs: build
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.deployment-url }}
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -78,8 +100,28 @@ jobs:
           path: public
 
       - name: Deploy Preview to Cloudflare Pages
+        id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy public --project-name=stubbornpackets --branch=pr-${{ github.event.pull_request.number }} --commit-dirty=true
+
+      - name: Output preview URL
+        run: |
+          echo "Preview deployed to: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Direct preview: https://pr-${{ github.event.pull_request.number }}.stubbornpackets.pages.dev"
+
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = '${{ steps.deploy.outputs.deployment-url }}';
+            const direct = `https://pr-${{ github.event.pull_request.number }}.stubbornpackets.pages.dev`;
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 **Preview deployed successfully!**\n\n**Main preview:** ${url}\n**Direct alias:** ${direct}`
+            });
