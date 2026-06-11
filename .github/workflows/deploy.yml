@@ -1,75 +1,79 @@
-# Placeholder GitHub Actions workflow for stubbornpackets
-#
-# TODO: Implement a full CI/CD workflow for Hugo builds and deployment to Cloudflare Pages.
-#
-# Current state (as of June 2026):
-# - Deployment is handled manually via Cloudflare Pages (connected directly to the repo).
-# - See deploy.md for the current recommended process and exact Cloudflare build settings.
-#
-# Future direction:
-# - This workflow will handle:
-#   - Hugo builds (extended version)
-#   - Optional preview deployments on PRs
-#   - Production deploys on push to main
-#   - Integration points for future Terraform/Ansible IaC automation
-#     (e.g., workflows triggered by content changes, or that call Terraform to
-#      manage Cloudflare resources + trigger deploys)
-#
-# - The site is intentionally designed so that new blog posts and homepage updates
-#   can eventually be scaffolded/updated via Terraform or Ansible instead of (or in
-#   addition to) manual markdown edits.
-#
-# Recommended actions to implement later:
-# - Use peaceiris/actions-hugo for Hugo setup
-# - Use cloudflare/wrangler-action or the official Pages deploy action
-# - Cache Hugo modules / resources for faster builds
-# - Add status checks, deployment notifications, etc.
-#
-# Example skeleton (uncomment and customize when ready):
-
 name: Deploy
 
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#
-#       - name: Setup Hugo
-#         uses: peaceiris/actions-hugo@v3
-#         with:
-#           hugo-version: '0.163.0'  # Match your local version
-#           extended: true
-#
-#       - name: Build
-#         run: hugo --minify
-#
-#       - name: Deploy to Cloudflare Pages
-#         # TODO: Add proper secrets and project config
-#         # uses: cloudflare/wrangler-action@v3
-#         # with:
-#         #   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-#         #   command: pages deploy public --project-name=stubbornpackets --branch=${{ github.ref_name }}
-#
-#         # Alternative: Use official Cloudflare Pages GitHub Action
-#         # See: https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/
-#
-#       # Future IaC hook example:
-#       # - name: Run Terraform (if managing Cloudflare infra as code)
-#       #   run: |
-#       #     terraform init
-#       #     terraform apply -auto-approve
-#       #   env:
-#       #     TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-# Remove the block above and implement when ready.
-# For now this file exists as documentation and a reminder of the intended automation path.
+      - name: Setup Hugo (Extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.163.0'
+          extended: true
 
-# See deploy.md for the complete current + future deployment story.
-# See the root README.md for high-level project overview.
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: |
+            resources
+            .hugo_build.lock
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public
+          retention-days: 1
+
+  # Deploy to production only on main
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: public
+
+      - name: Deploy to Cloudflare Pages (Production)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=stubbornpackets --branch=main
+
+  # Deploy preview for every PR
+  deploy-preview:
+    needs: build
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: public
+
+      - name: Deploy Preview to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=stubbornpackets --branch=pr-${{ github.event.pull_request.number }} --commit-dirty=true
