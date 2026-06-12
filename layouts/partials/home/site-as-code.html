@@ -9,7 +9,8 @@
       and update new lab notes with minimal manual work.
     </p>
     <p style="margin-top: 0.75rem;">
-      <a href="https://github.com/stubbornpackets" target="_blank" rel="noopener">View on GitHub →</a>
+      {{- $github := (index (where site.Params.socialIcons "name" "github") 0).url }}
+      <a href="{{ $github }}" target="_blank" rel="noopener">View on GitHub →</a>
     </p>
   </div>
 </section>

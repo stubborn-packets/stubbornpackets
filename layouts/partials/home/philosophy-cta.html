@@ -11,8 +11,10 @@
   <div class="cta-row">
     <a class="primary" href="/blog/">Browse the Lab Notes</a>
     <a href="/about/">About the author</a>
-    <a href="https://github.com/stubbornpackets" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/joshuabuck" target="_blank" rel="noopener">LinkedIn</a>
+    {{- $github := (index (where site.Params.socialIcons "name" "github") 0).url }}
+    {{- $linkedin := (index (where site.Params.socialIcons "name" "linkedin") 0).url }}
+    <a href="{{ $github }}" target="_blank" rel="noopener">GitHub</a>
+    <a href="{{ $linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 
   <p style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--secondary);">

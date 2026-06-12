@@ -7,3 +7,7 @@
      generate a favicon.ico (and optional apple-touch-icon) from the logo-neural-emblem.jpg
      using a tool like https://realfavicongenerator.net/ and place them in /static/.
      The SVG above will be used by modern browsers. -->
+
+<!-- Load PaperMod's fastsearch.js for client-side search (used by search bar on home and /blog/) -->
+{{- $fastsearch := resources.Get "js/fastsearch.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script defer src="{{ $fastsearch.Permalink }}" integrity="{{ $fastsearch.Data.Integrity }}"></script>

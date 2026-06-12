@@ -3,6 +3,22 @@ languageCode: 'en-us'
 title: stubbornpackets
 theme: PaperMod
 
+# Outputs for search index (PaperMod client-side search)
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
+
 params:
   description: "Homelab documentation — Network Engineering • IaC • ML"
   author: Joshua Buck

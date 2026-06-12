@@ -4,7 +4,7 @@ date: 2026-06-12
 draft: false
 description: "Why I'm dedicating the next 9 months to Infrastructure as Code (Terraform, Ansible, Kubernetes) while staying rooted in Network Engineering."
 categories: ["IaC", "Learning", "Career"]
-tags: ["Terraform", "Ansible", "Kubernetes", "Proxmox", "AWS", "Career-Growth"]
+tags: ["Terraform", "Ansible", "Kubernetes", "Proxmox", "AWS", "Career-Growth", "network-engineering", "iac", "ml"]
 cover:
   image: "hero-learn-everyday-with-server.jpg" 
   alt: "Homelab IaC Learning"

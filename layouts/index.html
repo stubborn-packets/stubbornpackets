@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- /*
   Custom homepage for stubbornpackets.
-  Fully data-driven where it makes sense (data/homelab.yaml + data/featured.yaml).
+  Mix of data-driven sections (lab-glance, focus-areas) and dynamic content (recent blog posts).
   Designed to be easy to update via future Terraform/Ansible automation.
 */ -}}
 
@@ -13,9 +13,9 @@
 
   {{ partial "home/focus-areas.html" . }}
 
-  {{ partial "home/site-as-code.html" . }}
-
   {{ partial "home/featured.html" . }}
+
+  {{ partial "home/site-as-code.html" . }}
 
   {{ partial "home/philosophy-cta.html" . }}
 
