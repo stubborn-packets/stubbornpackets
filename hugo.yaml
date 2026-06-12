@@ -7,6 +7,11 @@ params:
   description: "Homelab documentation — Network Engineering • IaC • ML"
   author: Joshua Buck
   
+  assets:
+    favicon: favicon.svg
+    favicon16x16: favicon.svg
+    favicon32x32: favicon.svg
+
   # Theme & Layout
   defaultTheme: dark
   contentWidth: "wide"           # Makes the site wider
