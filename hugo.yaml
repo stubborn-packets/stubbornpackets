@@ -16,6 +16,9 @@ params:
   # Homepage (custom layouts/index.html + data-driven sections)
   mainSections: ["blog"]
 
+  cover:
+    hiddenInList: true #/ Don't show cover images on list pages (e.g. homepage, category pages)
+
   # Custom homepage strings
   home:
     tagline: "From the lab to the lake — documenting real homelab engineering"
@@ -32,9 +35,9 @@ params:
   # Social Icons (update URLs later)
   socialIcons:
     - name: github
-      url: "https://github.com/stubbornpackets"
+      url: "https://www.github.com/stubborn-packets"
     - name: linkedin
-      url: "https://linkedin.com/in/joshuabuck"
+      url: "https://www.linkedin.com/in/joshuavonbuck"
 
   # Labels (logo in top-left nav)
   # Brand name + custom inline SVG (vectorized/optimized from the new logo-neural-emblem.jpg)
