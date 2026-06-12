@@ -6,7 +6,7 @@ description: "Why I'm dedicating the next 9 months to Infrastructure as Code (Te
 categories: ["IaC", "Learning", "Career"]
 tags: ["Terraform", "Ansible", "Kubernetes", "Proxmox", "AWS", "Career-Growth"]
 cover:
-  image: "/images/hero-learn-everyday-with-server.jpg"
+  image: "hero-learn-everyday-with-server.jpg" 
   alt: "Homelab IaC Learning"
   caption: "Homelab IaC Learning"
 ---
