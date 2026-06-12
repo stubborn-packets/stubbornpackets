@@ -1,0 +1,37 @@
+{{/* Certificates section - grouped by vendor for a clean list view.
+     Data lives in data/certificates.yaml so it's easy to add more later. */}}
+<section class="home-section">
+  <h2>Certificates</h2>
+
+  {{- $certs := .Site.Data.certificates.certificates }}
+  {{- $cisco := where $certs "issuer" "==" "Cisco" }}
+  {{- $microsoft := where $certs "issuer" "==" "Microsoft" }}
+
+  {{- if $cisco }}
+  <div class="cert-vendor">
+    <h3>
+      <svg class="vendor-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30" fill="currentColor" aria-hidden="true"><text x="0" y="24" font-size="22" font-weight="700" font-family="Arial, Helvetica, sans-serif">CISCO</text></svg>
+      Cisco
+    </h3>
+    <ul class="cert-list">
+      {{- range $cisco }}
+      <li>{{ .name }}</li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+
+  {{- if $microsoft }}
+  <div class="cert-vendor">
+    <h3>
+      <svg class="vendor-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="13" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="13" width="10" height="10" fill="#00a4ef"/><rect x="13" y="13" width="10" height="10" fill="#ffb900"/></svg>
+      Microsoft
+    </h3>
+    <ul class="cert-list">
+      {{- range $microsoft }}
+      <li>{{ .name }}</li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+</section>

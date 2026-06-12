@@ -1,0 +1,36 @@
+# Professional certifications
+# Used on the /about/ page to highlight achievements.
+# Easy to extend as new certs are earned.
+
+certificates:
+  - name: "Cisco Certified DevNet Associate"
+    issuer: "Cisco"
+    icon: "🔧"
+
+  - name: "Cisco CCNA Routing and Switching"
+    issuer: "Cisco"
+    icon: "🌐"
+
+  - name: "Cisco CCENT"
+    issuer: "Cisco"
+    icon: "🌐"
+
+  - name: "Microsoft Security Fundamentals"
+    issuer: "Microsoft"
+    icon: "🛡️"
+
+  - name: "Microsoft Networking Fundamentals"
+    issuer: "Microsoft"
+    icon: "🔌"
+
+  - name: "Microsoft Server Administration Fundamentals"
+    issuer: "Microsoft"
+    icon: "🖥️"
+
+  - name: "Microsoft Administering Windows Server 2012"
+    issuer: "Microsoft"
+    icon: "🪟"
+
+  - name: "Microsoft Installing and Configuring Windows Server 2012"
+    issuer: "Microsoft"
+    icon: "⚙️"

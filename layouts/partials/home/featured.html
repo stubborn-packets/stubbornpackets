@@ -1,41 +1,14 @@
-{{/* Featured + recent lab experiments.
-     Pulls from data/featured.yaml + automatically shows latest real blog posts.
+{{/* Recent blog posts section on the homepage.
+     Dynamically pulls the most recent posts from the blog section.
+     No static/curated items — only live content.
 */}}
 
-{{- $featured := index site.Data "featured" | default slice -}}
-
 <section class="home-section">
-  <h2>Featured Lab Experiments</h2>
+  <h2>Recent Blog Posts</h2>
 
   <div class="featured-list">
-    {{- /* Curated featured items from data */}}
-    {{- range $featured }}
-    <div class="featured-item">
-      <h3>{{ .title }}</h3>
-      <p class="summary">{{ .summary }}</p>
-
-      <div class="meta">
-        {{- if .status }}
-        <span class="status">{{ .status }}</span>
-        {{- end }}
-
-        {{- with .tags }}
-        <div class="tags">
-          {{- range . }}
-          <span>{{ . }}</span>
-          {{- end }}
-        </div>
-        {{- end }}
-      </div>
-
-      {{- if .url }}
-      <a class="entry-link" href="{{ .url }}" aria-label="{{ .title }}"></a>
-      {{- end }}
-    </div>
-    {{- end }}
-
-    {{- /* Automatically surface the 2 most recent real blog posts (if any exist) */}}
-    {{- $recentPosts := where site.RegularPages "Type" "in" site.Params.mainSections | first 2 }}
+    {{- /* Show the most recent blog posts, sorted by date (newest first) */}}
+    {{- $recentPosts := where site.RegularPages "Type" "in" site.Params.mainSections | first 4 }}
     {{- range $recentPosts }}
     <div class="featured-item">
       <h3>{{ .Title }}</h3>
