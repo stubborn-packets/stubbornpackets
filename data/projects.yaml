@@ -15,6 +15,6 @@ projects:
     description: "Proxmox VE infrastructure as code with Terraform. Building, automating, and versioning my homelab hypervisor and VM fleet as code."
     url: "https://github.com/stubborn-packets/proxmox-terraform"
     stars: 0
-    language: "Python"
+    language: "HCL"
     topics: "automation, gitops, homelab, iac, proxmox, terraform"
-    last_updated: "2026-06-11T19:54:11Z"
+    last_updated: "2026-07-30T14:42:59Z"
