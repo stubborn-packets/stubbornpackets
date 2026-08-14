@@ -30,6 +30,7 @@ This post covers the first concrete step: rebuilding Technitium as a Terraform-m
 Below are the two GitHub repos with all the code used in this post. These Repos are also where you can find the latest code updates for anything with my home lab, so there might be more recent changes than what's in this post.
 
 **Terraform** → [stubborn-packets/proxmox-terraform](https://github.com/stubborn-packets/proxmox-terraform.git)
+
 **Ansible** → [stubborn-packets/ansible](https://github.com/stubborn-packets/ansible.git)
 
 ---
