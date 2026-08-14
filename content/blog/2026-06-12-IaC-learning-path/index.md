@@ -1,7 +1,7 @@
 ---
 title: "My IaC Learning Journey in 2026 – From Network Engineer to Automation-First"
 date: 2026-06-12
-draft: true
+draft: false
 description: "Why I'm dedicating the next 9 months to Infrastructure as Code (Terraform, Ansible, Kubernetes) while staying rooted in Network Engineering."
 categories: ["IaC", "Learning", "Career"]
 tags: ["Terraform", "Ansible", "Kubernetes", "Proxmox", "AWS", "Career-Growth", "network-engineering", "iac", "ml"]

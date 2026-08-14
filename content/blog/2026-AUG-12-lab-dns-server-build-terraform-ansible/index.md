@@ -1,7 +1,7 @@
 ---
 title: "Building my Homelab DNS Server with Terraform and Ansible on Proxmox"
 date: 2026-08-13
-draft: true
+draft: false
 description: "Replacing a *hand-built* Technitium DNS server with a Proxmox LXC managed by Terraform and configured by Ansible."
 categories: ["Terraform", "Ansible", "Proxmox"]
 tags: ["Terraform", "Ansible", "Proxmox"]
