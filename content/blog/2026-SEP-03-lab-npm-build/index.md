@@ -13,7 +13,7 @@ cover:
 
 # The Reverse Proxy That Finally Joined the Club
 
-I already had a working Nginx Proxy Manager box. It did the job. Certificates renewed. Hosts forwarded. I clicked around the UI like the my dog that just found his toy he hid months ago. I was happy-ish.
+I already had a working Nginx Proxy Manager box. It did the job. Certificates renewed. Hosts forwarded. I clicked around the UI like my dog finding the toy he hid months ago. I was happy-ish.
 
 The problem was not NPM. The problem was *me*, staring at a container I built with an installer script and zero notes.
 
@@ -51,7 +51,7 @@ I will die on this hill. It is a small hill.
 
 This was the easy chapter, which is suspicious.
 
-Copy the DNS layout into `npm/`, point it at a new VMID, skip the VLAN tag (this one sits untagged on my LAB MGMT VLAN), inject the lab SSH key, turn nesting on because Docker is coming.
+Copy the DNS layout into `npm/`, point it at a new VMID, skip the VLAN tag (this NIC is untagged on `vmbr0`), inject the lab SSH key, turn nesting on because Docker is coming.
 
 One useful argument with myself: should NPM have two NICs — management vs “the internet-facing lie I tell my homelab”?
 
@@ -61,7 +61,7 @@ Answer for now: **no**. One IP. DNS `A` records for every pretty name point at `
 
 ---
 
-## Part 2: My Curse of taking bad notes (aka stop messing with my hosts file)
+## Part 2: My curse of taking bad notes (aka stop messing with local DNS)
 
 SSH by FQDN did not work.
 
@@ -76,7 +76,7 @@ That file sent the whole zone to the *old* DNS server. Cache flushes did nothing
 
 Delete the file. Flush cache. Suddenly the name and the IP live in the same universe. SSH works. I add the host key and pretend this was always the plan.
 
-**helpful tips to keep your hair:** if `dig` and `ping` argue, look for split-DNS leftovers on the *client* before you rebuild the server.
+**Helpful tip if you like having hair:** if `dig` and `ping` argue, look for split-DNS leftovers on the *client* before you rebuild the server.
 
 ---
 
@@ -126,7 +126,7 @@ Cloudflare token lives in `secrets.yml`. The example file has a fake one. Git se
 
 Re-run the playbook: existing cert is skipped, existing host is skipped. Add a line to `npm_proxy_hosts` when I get around to building the next host.
 
-WebSockets? Only if the app actually upgrades the connection (Proxmox, dashboards, the NPM UI itself). Technitium does not need it. Trying to take my best guess if it needs it or not.
+WebSockets? Only if the app actually upgrades the connection (Proxmox, dashboards, the NPM UI itself). Technitium does not need it.
 
 ---
 
@@ -152,7 +152,7 @@ Ansible will **not** delete an NPM host if you remove it from the list. Same les
 - The old “installer script and vibes” NPM can retire when the last host has moved.
 
 Is it overkill for a container that forwards ports? Yes.  
-Will I remember how I built it in February? Also yes (*thankfully for this post and some documentation in Git*), and that is the entire product.
+Will I remember how I built it in February? Also yes (*thankfully this post exists*), and that is the entire product.
 
 ---
 
