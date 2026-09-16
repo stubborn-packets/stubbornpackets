@@ -7,9 +7,9 @@ projects:
     description: "Cisco ISE automation, 802.1X / NAC policy management, and identity-driven network access tooling. Policy-as-code experiments and Python automation from my network engineering and IaC learning labs."
     url: "https://github.com/stubborn-packets/cisco-ise"
     stars: 0
-    language: "N/A"
+    language: "Python"
     topics: "automation, cisco, cisco-ise, dot1x, nac, network-automation, python"
-    last_updated: "2026-09-11T12:46:47Z"
+    last_updated: "2026-09-15T18:49:16Z"
   - name: "proxmox-terraform"
     repo: "stubborn-packets/proxmox-terraform"
     description: "Proxmox VE infrastructure as code with Terraform. Building, automating, and versioning my homelab hypervisor and VM fleet as code."
