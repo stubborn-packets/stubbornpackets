@@ -138,6 +138,10 @@ That was the payoff from Phase 0. The naming table stopped being theoretical the
 
 Part 2 is the linter: `lint/prefixes.yaml` against `policy/` and `inventory/`. A bad name should fail the PR before ERS ever sees it. Still no writes. The first Terraform apply is a later post on purpose. I want the next "this is fun" moment to be a failed lint, not a surprise object in the lab GUI.
 
+## Series
+- Part 1 — repo + read-only export ← this post
+- Part 2 — naming linter  (coming soon)
+
 ---
 
 *Personal homelab only. Not affiliated with my employer. Hostnames, prefixes, object names, and example policy in this post and the repo are fictional lab material, not an internal standard.*
