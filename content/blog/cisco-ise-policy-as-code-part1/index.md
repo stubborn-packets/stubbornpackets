@@ -14,11 +14,15 @@ cover:
 
 Cisco ISE is a beast when everything lives in the GUI. Fine if you are the only person who touches it. Ugly once a team is in the same Policy Sets page and nobody can answer who changed what, or whether the name on that authorization profile was ever a standard.
 
-This series is me finding out whether Policy-as-Code on ISE 3.x is a real operating model or just a Cisco Live slide. I like automation, so I spun up an eval node in the homelab, seeded it with messy GUI objects on purpose, and used Grok AI to help break the work into phases that cannot smash the lab.
+This series is me finding out whether Policy-as-Code on ISE 3.x is a real operating model or just a Cisco Live slide. I am guessing; it has been a while. I like tinkering, so I spun up an eval node in the homelab, seeded it with messy GUI objects on purpose, and used Grok AI to help break the work into phases that cannot smash the lab.
 
 Part 1 is only Phase 0 and Phase 1. Nothing is applied. Terraform does not have a provider block yet.
 
 The post is a snapshot. The repo will move as later phases land.
+
+**Note:** *This is a personal homelab project. Prefixes, object names, and example policy shapes are fictional. They came from public posts on this topic and from what I think a brownfield lab should look like so the export is interesting. They are not copied from an internal standard and they are not names used by my employer. Nothing here is employer policy, employer architecture, or employer data.*
+
+*Opinions are mine.*
 
 ---
 
@@ -54,7 +58,7 @@ Cutover that will span later posts:
 
 YAML under `policy/` is the review surface. CSV under `exports/` is observed state. Terraform becomes the writer in a later part, and only against lab.
 
-Bonus: once policy is in Git, a policy-set review is a file and a diff, not a pile of GUI screenshots.
+*Bonus: once policy is in Git, a policy-set review is a file and a diff, not a pile of GUI screenshots.*
 
 ## Phase 0 — Plan (the phase that actually pays)
 
@@ -136,4 +140,4 @@ Part 2 is the linter: `lint/prefixes.yaml` against `policy/` and `inventory/`. A
 
 ---
 
-*Homelab only. Hostnames and RFC1918 addresses in this post are the eval node, not an employer network.*
+*Personal homelab only. Not affiliated with my employer. Hostnames, prefixes, object names, and example policy in this post and the repo are fictional lab material, not an internal standard.*
