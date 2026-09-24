@@ -219,7 +219,8 @@ The linter stays in front of that apply. If the name is wrong, the API should ne
 ## Series
 - [Part 1 — repo + read-only export](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part1)
 - Part 2 — naming linter  ← this post
-- Part 3 — first lab apply (coming soon)
+- [Part 3 — first lab apply]((https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part3))
+- Part 4 - policy building blocks (coming soon)
 
 ---
 
