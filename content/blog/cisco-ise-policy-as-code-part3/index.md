@@ -210,7 +210,9 @@ The linter stays in front of those applies. If the name is wrong, ERS should not
 - [Part 1 — repo + read-only export](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part1)
 - [Part 2 — naming linter](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part2)
 - Part 3 — first lab apply ← this post
-- Part 4 - policy building blocks (coming soon)
+- [Part 4 — policy building blocks](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part4)
+- [Part 5 — policy sets, disabled](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part5)
+- [Part 6 — YAML conversion and the reader](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part6)
 
 ---
 

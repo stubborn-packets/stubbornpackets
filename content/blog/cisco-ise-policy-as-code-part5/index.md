@@ -278,6 +278,7 @@ Sets stay disabled. Enable is the cutover. Still lab only. Still no `prod/`. Sti
 - [Part 3 — first lab apply](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part3)
 - [Part 4 — policy building blocks](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part4)
 - Part 5 — policy sets, disabled ← this post
+- [Part 6 — YAML conversion and the reader](https://stubbornpackets.com/blog/cisco-ise-policy-as-code-part6)
 
 ---
 
